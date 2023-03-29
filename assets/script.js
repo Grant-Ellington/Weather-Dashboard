@@ -6,6 +6,7 @@ console.log('it works')
 
  var search = $('#search')
  var textarea = $('#textarea')
+ var previousSeaches = $('#previousSearches')
 
  function getLocation(city){
     fetch('https://api.openweathermap.org/geo/1.0/direct?q='+city+'&limit=5&appid='+ key).then(function(response){
@@ -37,9 +38,9 @@ console.log(data)
 
 function addPreviousSearch(location){
     console.log('hit 2')
-var liEl = $('<li>')
-liEL.text(location)
-liEL.append(search)  
+var liEl = $('<button>')
+    liEl.text(location)
+    previousSeaches.append(liEl)  
 }
 
 search.on('click', function(){

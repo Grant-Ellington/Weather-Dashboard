@@ -36,22 +36,26 @@ function getWeather(lat,lon){
 }
 
 function getCurrentWeather(lat, lon){
-fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&appid='+key).then(function(response){
-return response.json();
-}).then(function(data){
-console.log(data)
-})
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&appid='+key).then(function(response){
+    return response.json();
+    }).then(function(currentWeather){
+        console.log(currentWeather)
+
+        var temp = Math.round((currentWeather.main.temp - 273.15)*1.8 + 32)
+        tempToday.text(`Tempature: ${temp}`)
+        
+    })
 }
 
 function addPreviousSearch(location){
-    console.log('hit 2')
+
 var liEl = $('<button>')
     liEl.text(location)
-    previousSeaches.append(liEl)  
+    previousSearches.append(liEl)  
 }
 
 search.on('click', function(){
-    console.log('hit')
+  
     searchLocation = textarea.val().trim();
 
     getLocation(searchLocation);

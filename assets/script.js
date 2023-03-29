@@ -8,6 +8,13 @@ console.log('it works')
  var textarea = $('#textarea')
  var previousSeaches = $('#previousSearches')
 
+ var cityName = $('#cityName');
+ var dateToday = $('#dateToday');
+ var iconToday = $('#iconToday');
+ var tempToday = $('#tempToday');
+ var humToday = $('#humToday');
+ var speedToday = $('#speedToday')
+
  function getLocation(city){
     fetch('https://api.openweathermap.org/geo/1.0/direct?q='+city+'&limit=5&appid='+ key).then(function(response){
         return response.json()

@@ -19,20 +19,18 @@ console.log('it works')
     fetch('https://api.openweathermap.org/geo/1.0/direct?q='+city+'&limit=5&appid='+ key).then(function(response){
         return response.json()
     }).then(function(data){
-        console.log(data)
         var lat = data[0].lat
         var lon = data[0].lon
-        getWeather(lat, lon)
+        getForecast(lat, lon)
         getCurrentWeather(lat,lon)
     })
 }
 
-function getWeather(lat,lon){
+function getForecast(lat,lon){
     fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&appid='+ key).then(function(response){
         return response.json()}
     ).then(function(data){
         console.log(data)
-        // displayCurrentWeather(data)
     })
 }
 
@@ -61,7 +59,7 @@ function displayCurrentWeather (currentWeather){
 };
 
 function addPreviousSearch(location){
-    var liEl = $(`<button class='btn-history'>${location}</button>`)
+    var liEl = $(`<button class='btn btn-info btn-block btn-history'>${location}</button>`)
     previousSearches.append(liEl)  
 }
 

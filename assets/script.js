@@ -6,7 +6,7 @@ console.log('it works')
 
  var search = $('#search')
  var textarea = $('#textarea')
- var previousSeaches = $('#previousSearches')
+ var previousSearches = $('#previousSearches')
 
  var cityName = $('#cityName');
  var dateToday = $('#dateToday');
@@ -32,6 +32,7 @@ function getWeather(lat,lon){
         return response.json()}
     ).then(function(data){
         console.log(data)
+        // displayCurrentWeather(data)
     })
 }
 
@@ -40,19 +41,35 @@ function getCurrentWeather(lat, lon){
     return response.json();
     }).then(function(currentWeather){
         console.log(currentWeather)
+        displayCurrentWeather(currentWeather)
+        
 
-        var temp = Math.round((currentWeather.main.temp - 273.15)*1.8 + 32)
-        tempToday.text(`Tempature: ${temp}`)
+        
         
     })
 }
+function displayCurrentWeather (currentWeather){
+    console.log(currentWeather)
+
+    var temp = Math.round((currentWeather.main.temp - 273.15)*1.8 + 32)
+    tempToday.text(`Temperature: ${temp}°F`)
+    cityName.text(currentWeather.name)
+    dateToday.text(dayjs().format('MMMM D, YYYY'))
+    humToday.text(`Humidity: ${currentWeather.main.humidity}`)
+    speedToday.text(`Wind speed: ${currentWeather.wind.speed} `)
+    iconToday.html(`<img scr = 'http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png'>`)
+};
 
 function addPreviousSearch(location){
-
-var liEl = $('<button>')
-    liEl.text(location)
+    var liEl = $(`<button class='btn-history'>${location}</button>`)
     previousSearches.append(liEl)  
 }
+
+$('#previousSearches').on("click", ".btn-history", function(event) {
+    var cityNameFromBtn = $(this).text();
+    console.log(cityNameFromBtn);
+    getLocation(cityNameFromBtn);
+})
 
 search.on('click', function(){
   

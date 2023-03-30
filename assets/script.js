@@ -57,7 +57,7 @@ function displayCurrentWeather (currentWeather){
     dateToday.text(dayjs().format('MMMM D, YYYY'))
     humToday.text(`Humidity: ${currentWeather.main.humidity}`)
     speedToday.text(`Wind speed: ${currentWeather.wind.speed} `)
-    iconToday.html(`<img scr = 'http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png'>`)
+    iconToday.html(`<img src = 'http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png'>`)
 };
 
 function addPreviousSearch(location){

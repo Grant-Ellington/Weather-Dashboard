@@ -32,8 +32,10 @@
   ## Features
   ![Page](./assets/img/frontscreen.png)
 
+  [Deployed Link](https://grant-ellington.github.io/Weather-Dashboard/)
+
   * Search by city.
   * utilizes local storage to auto populate previous cities.
   * create a dashboard of cities based on search.
   * utilizes Bootstrap for CSS
-  
+

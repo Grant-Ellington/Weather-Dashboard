@@ -21,10 +21,19 @@
   ## Technologies
   Project is created with:
   * HTML
-  * XSS
+  * CSS
   * JavaScript
   
   
   ## Questions
   Grant-Ellington
   [gellingtonem6@gmail.com](gellingtonem6@gmail.com)
+
+  ## Features
+  ![Page](./assets/img/frontscreen.png)
+
+  * Search by city.
+  * utilizes local storage to auto populate previous cities.
+  * create a dashboard of cities based on search.
+  * utilizes Bootstrap for CSS
+  
